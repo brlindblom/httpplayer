@@ -45,7 +45,7 @@ module HttpplayerHelper
     options     = scenario.options
     param_hash = {}
     match_hash.keys.reject{|i| !options.has_key?(i)}.each do |param|
-      if HttpplayerScenario.methods.include? (param.to_s + "_transform").to_sym
+      if HttpplayerScenario.methods.include?(param.to_s + "_transform").to_sym
         # this can be confusing for Ruby n00bs...  send() allows us to call
         # a method on an object or class identified by a string
         dbgp LOG_VERBOSE, param.to_s + "_transform(#{options[param]})"
