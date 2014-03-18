@@ -4,14 +4,9 @@ A tool for cli-ifying the tedious task of interacting with crusty, old cgi appli
 
 ## Why?
 
-Because old, multi-part form-driven cgi applications suck in a huge way because there _is_ no means for automation, especially when your developers didn't have the foggiest sense of providing an API when
-they wrote it, and I was, unfortunately, forced to use such an app for an employer... and was feeling
-lazy.
+Because we want to automate actions against older, CGI-based applications that must still be used.
 
 ## Example?
-
-The 90's called... they want their disgusting, error-prone, web app from the bowels of hell back!  But
-thankfully, we can work with it like so:
 
 ```
 $ ls
