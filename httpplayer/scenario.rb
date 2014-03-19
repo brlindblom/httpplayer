@@ -119,7 +119,6 @@ class HttpplayerScenario
             errors = response.body.to_s.match(self.post_get_opts[path][:bad_out])
             if !errors.nil?
               puts response.body.to_s if self.post_get_opts[path][:print_response]
-              puts "================================="
               puts errors[1]
               break
             else
@@ -141,6 +140,15 @@ class HttpplayerScenario
                   if (f_inputs.is_a? Array and f_inputs.include? f_name.gsub(/"/,"")) or !f_inputs.is_a? Array
                     params[f_name.gsub(/"/,"").to_sym] = f_value.gsub(/"/,"")
                   end
+                end
+              end
+              if !self.post_get_opts[path][:validation].nil?
+                valid = response.body.match(self.post_get_opts[path][:validation])
+                if valid.nil?
+                  puts "Error completing transaction.  You may want to enable :print_response to see why."
+                  break
+                else
+                  puts valid
                 end
               end
             end
